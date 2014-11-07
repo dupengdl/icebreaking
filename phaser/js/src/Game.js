@@ -150,6 +150,8 @@ BasicGame.Game.prototype = {
         this.sKey.onDown.add(this.toggleshakeEffect, this);
         this.bKey = this.game.input.keyboard.addKey(Phaser.Keyboard.B);
         this.bKey.onDown.add(this.toggleMouseKeyboardControls, this);
+        this.pKey = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
+        this.pKey.onDown.add(this.pauseGame, this);
 
         this.leftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
         this.leftKey.onDown.add(this.prevLevel, this);
@@ -577,6 +579,11 @@ BasicGame.Game.prototype = {
         }
 
         this.levelText.content = 'level: ' + (this.currentLevel + 1);
+    },
+
+    pauseGame: function(){
+        console.log("paused!");
+        this.game.paused = !this.game.paused;
     },
 
     paddleUpdate: function () {

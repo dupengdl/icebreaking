@@ -32,6 +32,7 @@ BasicGame.Preloader.prototype = {
          */
         this.load.image('bg', 'assets/images/bg_prerendered.png');
         this.load.image('logo', 'assets/images/logo.png');
+        this.load.image('playButton', 'assets/images/play_button.png');
 
         this.load.atlas('tiles', 'assets/textureAtlas/breakout.png', 'assets/textureAtlas/breakout.json');
 
@@ -44,7 +45,7 @@ BasicGame.Preloader.prototype = {
         //	+ lots of other required assets here
 
         var arPreventedKeys = [
-            Phaser.Keyboard.SPACEBAR,
+            Phaser.Keyboard.SPACEBAR
             , Phaser.Keyboard.UP
             , Phaser.Keyboard.DOWN
             , Phaser.Keyboard.LEFT

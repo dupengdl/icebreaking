@@ -25,20 +25,23 @@ BasicGame.MainMenu.prototype = {
         this.logo = this.add.sprite(this.game.world.centerX, 140, 'logo');
         this.logo.anchor.setTo(0.5, 0.5);
 
+        //add a start button
+        button = this.game.add.button(this.game.world.centerX - 100, 280, 'playButton', this.click, this, 1, 0, 2);
+
         //add text
-        this.gameMessageText = this.add.text(this.game.world.centerX, 280, 'click to start', { font: "20px Arial", fill: "#000000", align: "center" });
+        /*this.gameMessageText = this.add.text(this.game.world.centerX, 280, 'click to start', { font: "20px Arial", fill: "#000000", align: "center" });
+        this.gameMessageText.anchor.setTo(0.5, 0);*/
+
+        //add text
+        this.gameMessageText = this.add.text(this.game.world.centerX, 360, 'during the game use: L/R arrow', { font: "20px Arial", fill: "#000000", align: "center" });
         this.gameMessageText.anchor.setTo(0.5, 0);
 
         //add text
-        this.gameMessageText = this.add.text(this.game.world.centerX, 340, 'during the game use: L/R arrow', { font: "20px Arial", fill: "#000000", align: "center" });
-        this.gameMessageText.anchor.setTo(0.5, 0);
-
-        //add text
-        this.gameMessageSecondLineText = this.add.text(this.game.world.centerX, 370, 'keys to skip level ', { font: "20px Arial", fill: "#000000", align: "center" });
+        this.gameMessageSecondLineText = this.add.text(this.game.world.centerX, 390, 'keys to skip level ', { font: "20px Arial", fill: "#000000", align: "center" });
         this.gameMessageSecondLineText.anchor.setTo(0.5, 0);
 
-        //add a click handler
-        this.game.input.onDown.add(this.click, this);
+        //this.game.input.onDown.add(this.click, this);
+
 
         //this.playButton = this.add.button(320, 416, 'playButton', this.startGame, this, 'buttonOver', 'buttonOut', 'buttonOver');
 
