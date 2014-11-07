@@ -394,7 +394,7 @@ BasicGame.Game.prototype = {
                         'brick_' + bID + '_1.png'
                     ], 10, false, false);
                     var tempCount = 0;
-                    if(this.bricks.countLiving() > 0) {
+                    if (this.bricks.countLiving() > 0) {
                         tempCount = this.bricks.countLiving();
                     }
                     tempBrick.name = 'brick' + (tempCount + 1);
@@ -417,13 +417,13 @@ BasicGame.Game.prototype = {
 
         //Give some random bricks the abbility to drop items
         var dropItemLimit = this.dropItemLimit + this.currentLevel;
-        var brickPartLimit = Math.floor(this.bricks.countLiving()/dropItemLimit);
+        var brickPartLimit = Math.floor(this.bricks.countLiving() / dropItemLimit);
         var brickStartLimit = 1;
         var brickEndLimit = brickPartLimit;
 
         for (var dropCount = 0; dropCount < dropItemLimit; dropCount++) {
 
-            var randomBrick = this.getRandomInt(brickStartLimit,brickEndLimit);
+            var randomBrick = this.getRandomInt(brickStartLimit, brickEndLimit);
 
             //Get random value in range
             var randomBrickName = "brick" + randomBrick;
@@ -452,7 +452,7 @@ BasicGame.Game.prototype = {
         var tempBall;
         tempBall = this.game.add.sprite(this.ballInitialX, this.ballInitialY, 'tiles');
         var tempCount = 0;
-        if(this.balls.countLiving() > 0) {
+        if (this.balls.countLiving() > 0) {
             tempCount = this.balls.countLiving();
         }
         tempBall.name = 'ball' + (tempCount + 1);
@@ -507,8 +507,7 @@ BasicGame.Game.prototype = {
         this.ballsCount = 0;
         var tempBall = this.balls.getFirstDead();
 
-        if (tempBall)
-        {
+        if (tempBall) {
             this.resetBall(tempBall);
         }
 
@@ -603,7 +602,7 @@ BasicGame.Game.prototype = {
                 } else {
                     this.paddle.body.velocity.x = -this.paddleSpeed;
                 }
-            }else if ((this.dKey.isDown) && (!this.aKey.isDown)) {
+            } else if ((this.dKey.isDown) && (!this.aKey.isDown)) {
                 if (this.paddle.body.x >= this.game.world.width - this.paddle._cache.width) {
                     this.paddle.body.x = this.game.world.width - this.paddle._cache.width;
                 } else {
@@ -615,7 +614,7 @@ BasicGame.Game.prototype = {
         }
 
         if (this.game.input.keyboard.justReleased(Phaser.Keyboard.Z)) {
-             this.nerfPaddle();
+            this.nerfPaddle();
         }
 
         if (this.isPaddleNerfed) {
@@ -791,7 +790,7 @@ BasicGame.Game.prototype = {
 
         var bounceCoefficient = 0;
 
-        function coefficient(bounceScale, halfWidth){
+        function coefficient(bounceScale, halfWidth) {
 
             if (bounceScale > 0 && bounceScale < halfWidth / 3) {
                 return 0.7;
@@ -843,7 +842,7 @@ BasicGame.Game.prototype = {
 
         this.scoreText.content = 'score: ' + this.score;
 
-        if( this.bricksWithItems.indexOf(_brick.name) > -1 ){
+        if (this.bricksWithItems.indexOf(_brick.name) > -1) {
             this.dropItem(_brick.x, _brick.y);
         }
     },
@@ -856,12 +855,12 @@ BasicGame.Game.prototype = {
         return true;
     },
 
-    dropItem: function (dropItemInitialX,dropItemInitialY) {
+    dropItem: function (dropItemInitialX, dropItemInitialY) {
 
         var typeFrame = "";
         var itemEffectName = "";
 
-        if(Math.floor(Math.random()*2)){
+        if (Math.floor(Math.random() * 2)) {
             typeFrame = 'power_down.png';
             itemEffectName = "powerDown";
         } else {
@@ -872,7 +871,7 @@ BasicGame.Game.prototype = {
         var dropItem;
         dropItem = this.game.add.sprite(this.getRandomInt(32, this.game.world.width - 64), -32, 'tiles', typeFrame);
         var tempCount = 0;
-        if(this.items.countLiving() > 0) {
+        if (this.items.countLiving() > 0) {
             tempCount = this.items.countLiving();
         }
         dropItem.name = 'item' + (tempCount + 1);
@@ -909,7 +908,7 @@ BasicGame.Game.prototype = {
 
     paddleHitItemProcess: function (paddle, item) {
 
-        if(item.itemEffectName == "powerDown"){
+        if (item.itemEffectName == "powerDown") {
             this.nerfPaddle();
             //play a sound
             this.powerdown.play();
@@ -981,7 +980,7 @@ BasicGame.Game.prototype = {
         this.game.state.start('GameOver');
     },
 
-    gameWin: function(){
+    gameWin: function () {
         this.game.state.start('Congratulations');
     },
 

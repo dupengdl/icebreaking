@@ -1,7 +1,7 @@
 ﻿body
 {
     font-family: 'Segoe UI', sans-serif;
-    background: #ffffff;
+    background: #333;
 }
 
 #gameContainer
@@ -12,7 +12,7 @@
     position: absolute !important;
     right: 0;
     top: 0;
-    background: none repeat scroll 0 0 #ffffff;
+    background: none repeat scroll 0 0 #333;
     height: 416px;
     overflow: hidden;
     position: relative;
